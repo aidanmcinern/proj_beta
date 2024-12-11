@@ -66,4 +66,4 @@ Some possible future enhancements and features i’d like to add:
 - experiment with different LLM options
 - more analyics case studies!!
 
-If you have any thoughts, i'd also be delighted them :)
+If you have any thoughts, i'd also be delighted to hear from you :)
