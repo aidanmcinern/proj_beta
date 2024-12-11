@@ -48,7 +48,7 @@ Environment Variables: [Outline of configuration of required .env variables](htt
 ## 4. Learning Objectives & Outcomes
 As outlined at the top, the goal was to experiment and get some hands on experience and master certain tools. Below is a summary of these learnings:  
 
-Blender: I previously had no experience whatsoever, but i found [blenderguru's channel](https://www.youtube.com/@blenderguru) invaluable to get orientated, as there is a bit of a learning curve. It's pretty intuitive once you reach the plateau and i particularly like the workflow and the flexiblity in creating procedural models. However - and i hate to complain as its open source and generally great - working with armatures drains time away like nothing else - so frustrating!
+Blender: I previously had no experience whatsoever and i found [blenderguru's channel](https://www.youtube.com/@blenderguru) invaluable to get orientated, as there is a bit of a learning curve. It's pretty intuitive once you reach the plateau and i particularly like the workflow and the flexiblity in creating procedural models. However - and i hate to complain as its open source and generally great - working with armatures drains time away like nothing else - so frustrating!
 
 MongoDB
 
