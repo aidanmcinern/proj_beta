@@ -6,7 +6,7 @@ This repositry (proj_beta) holds the files for my personal project site - www.ai
 - Database paradigms i'd otherwise only read about like NoSQL and GraphQL.
 - DevOps best practices, including security, CI/CD and containerization.
 
-The website is pretty lightweight and by opting for free tier services (where possible) in Azure, the cheapest option in ChatGBT (3.5), open source 
+The website is pretty lightweight - and by opting for free tier services (where possible) in Azure, the cheapest option in ChatGBT (3.5) and open source,the running cost of the site is around €2/month.
 
 ## 2. Technology Stack
 The main features of the project:
@@ -68,5 +68,4 @@ Some possible future enhancements and features i’d like to add:
 - experiment with different LLM options
 - more analyics case studies!!
 
-If you have any thoughts, i'd also be delighted to hear from you :)
-
+If you have any thoughts, i'd also be delighted them :)
