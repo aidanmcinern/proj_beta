@@ -26,7 +26,7 @@ The main features of the project:
 You can use the following steps to recreate the site.
 Note: The 3d model is not hosted here. Also API keys and database URIs are secured in AzureVault.
 
-Prerequisites: List dependencies like Python, Node.js, Docker, etc.
+Prerequisites: requires Python, Node.js, Docker
 Steps to Clone and Run:
 ```
 git clone https://github.com/aidanmciern/proj_beta.git
