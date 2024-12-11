@@ -4,7 +4,7 @@ This repositry (proj_beta) holds the files for my personal project site - www.ai
 - 3D modeling and animations.
 - Best practice for backend structuring, including Express API
 - Database paradigms i'd otherwise only read about like NoSQL and GraphQL.
-- DevOps best practices, including security, CI/CD and containerization.
+- some DevOps best practices, including security, CI/CD and containerization.
 
 The website is pretty lightweight - and by opting for free tier services (where possible) in Azure, the cheapest option in ChatGBT (3.5) and open source,the running cost of the site is around €2/month.
 
