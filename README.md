@@ -1,8 +1,6 @@
 ## 1. Project Title and Description
 This repositry (proj_beta) holds the files for my personal project site - www.aidanmcinern.com - built as a technical sandbox to try out new tools and techniques outside my usual data science work, including:
-- Front-end development.
-- 3D modeling and animations.
-- Best practice for backend structuring, including Express API
+- Front-end and backend development.
 - Database paradigms i'd otherwise only read about like NoSQL and GraphQL.
 - some DevOps best practices, including security, CI/CD and containerization.
 
