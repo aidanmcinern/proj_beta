@@ -1,0 +1,223 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    background-color: #ffffff00;
+    height: 3.33vh; /* Reduced by 2/3 */
+    width: 3.33vw; /* Reduced by 2/3 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-wrapper {
+    position: relative;
+}
+
+.glass {
+    border: 5px solid white; /* Reduced border width */
+    border-bottom-width: 10px; /* Reduced border width */
+    border-top: transparent;
+    border-radius: 0 0 4px 4px;
+    height: 160px; /* Reduced by 2/3 */
+    width: 96px; /* Reduced by 2/3 */
+    transform: perspective(160px) rotateX(-10deg);
+    position: relative;
+    overflow: hidden;
+}
+
+.beer {
+    height: 90%;
+    width: 100%;
+    background-color: gold;
+    position: absolute;
+    bottom: 0;
+    transform: scaleY(1);
+    transform-origin: bottom;
+    animation: beer-fill 4000ms linear 1; /* Doubled duration, play once */
+}
+
+.bubble {
+    display: inline-block;
+    width: 5px; /* Reduced by 2/3 */
+    height: 5px; /* Reduced by 2/3 */
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    animation: bubble-rise 4000ms 1; /* Doubled duration, play once */
+}
+
+.bubble:nth-child(1) {
+    left: 3.7%;
+    bottom: 0.4%;
+    animation-duration: 3720ms; /* Doubled */
+    animation-delay: 280ms; /* Halved */
+}
+
+.bubble:nth-child(2) {
+    left: 51%;
+    bottom: 6.4%;
+    animation-duration: 3280ms; /* Doubled */
+    animation-delay: 720ms; /* Halved */
+}
+
+.bubble:nth-child(3) {
+    left: 18%;
+    bottom: 1.4%;
+    animation-duration: 3880ms; /* Doubled */
+    animation-delay: 120ms; /* Halved */
+}
+
+.bubble:nth-child(4) {
+    left: 83%;
+    bottom: 9.1%;
+    animation-duration: 3180ms; /* Doubled */
+    animation-delay: 820ms; /* Halved */
+}
+
+.bubble:nth-child(5) {
+    left: 58%;
+    bottom: 14.7%;
+    animation-duration: 3860ms; /* Doubled */
+    animation-delay: 140ms; /* Halved */
+}
+
+.bubble:nth-child(6) {
+    left: 13%;
+    bottom: 3.6%;
+    animation-duration: 3540ms; /* Doubled */
+    animation-delay: 460ms; /* Halved */
+}
+
+.bubble:nth-child(7) {
+    left: 73%;
+    bottom: 0.4%;
+    animation-duration: 3800ms; /* Doubled */
+    animation-delay: 200ms; /* Halved */
+}
+
+.bubble:nth-child(8) {
+    left: 41%;
+    bottom: 14.4%;
+    animation-duration: 3380ms; /* Doubled */
+    animation-delay: 620ms; /* Halved */
+}
+
+.bubble:nth-child(9) {
+    left: 35%;
+    bottom: 0.4%;
+    animation-duration: 4000ms; /* Doubled */
+}
+
+.foambubble {
+    display: inline-block;
+    width: 47px; /* Reduced by 2/3 */
+    height: 20px; /* Reduced by 2/3 */
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: -10px; /* Adjusted to maintain proportions */
+    z-index: 2;
+}
+
+.foambubble:nth-child(1) {
+    left: -21%;
+}
+
+.foambubble:nth-child(2) {
+    left: 3%;
+}
+
+.foambubble:nth-child(3) {
+    left: 18%;
+}
+
+.foambubble:nth-child(4) {
+    left: 37%;
+}
+
+.foambubble:nth-child(5) {
+    left: 65%;
+}
+
+.foamtop {
+    position: absolute;
+    z-index: 2;
+    top: -23px; /* Reduced proportionally */
+    left: 0;
+    width: 100%;
+    height: 40px; /* Reduced by 2/3 */
+    animation: ftbubble-appear 8s 1; /* Doubled duration, play once */
+}
+
+.ft-bubble {
+    display: inline-block;
+    width: 60px; /* Reduced by 2/3 */
+    height: 33px; /* Reduced by 2/3 */
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+}
+
+.ft-bubble:nth-child(1) {
+    left: -12%;
+}
+
+.ft-bubble:nth-child(2) {
+    left: 13%;
+}
+
+.ft-bubble:nth-child(3) {
+    left: 43%;
+}
+
+.ft-bubble:nth-child(4) {
+    left: 57%;
+}
+
+@keyframes beer-fill {
+    0% {
+        transform: scaleY(0);
+    }
+    48%,
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes bubble-rise {
+    0%,
+    20% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0);
+    }
+    85% {
+        opacity: 1;
+        transform: translate3d(0, -1920%, 0);
+    }
+    100% {
+        opacity: 0.5;
+        transform: translate3d(0, -1870%, 0);
+    }
+}
+
+@keyframes ftbubble-appear {
+    0%,
+    40% {
+        opacity: 0;
+        transform: translateY(35px) scale3d(0, 0, 0);
+    }
+    42% {
+        opacity: 0;
+        transform: translateY(27px) scale3d(0.4, 0, 0);
+    }
+    67%,
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale3d(1, 1, 0);
+    }
+}

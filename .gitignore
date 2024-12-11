@@ -1,3 +1,5 @@
 .env
 server/.env.development
 client/.env.development
+client/node_modules
+3d modelling

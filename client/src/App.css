@@ -1,0 +1,38 @@
+html, body {
+    height: 100%; /* Ensure that the body can expand */
+    overflow: auto; /* Allow scrolling */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.App {
+    text-align: center;
+}
+
+
+
+@keyframes fadeInFromCenter {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInFromTop {
+    from {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  `
