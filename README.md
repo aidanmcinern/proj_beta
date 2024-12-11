@@ -28,17 +28,23 @@ Note: The 3d model is not hosted here. Also API keys and database URIs are secur
 
 Prerequisites: List dependencies like Python, Node.js, Docker, etc.
 Steps to Clone and Run:
+```
 git clone https://github.com/aidanmciern/proj_beta.git
 cd proj_beta
+```
 
 # For backend
+```
 pip install -r requirements.txt
 npm install
 cd server
 node server.js 
+```
 # For frontend
+```
 cd ./../frontend
 npm start
+```
 Environment Variables: [Outline of configuration of required .env variables](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/manage-environment-variables) 
 
 ## 4. Learning Objectives & Outcomes
