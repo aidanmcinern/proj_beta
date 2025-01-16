@@ -19,7 +19,7 @@ This repositry (proj_beta) holds the files for my personal project site - www.ai
 
 As a data scientist, I occasionally get opportunities to do some python dash frontend etc but I'm certainly no fullstacker. Since my forays into web development are so limited I was minded to develop a website (like its 2005!) to get a feel for the full stack experience.
 
-What should this website be? There are some really outstanding 'portfolio' sites out there such as by [Jesse Zhou](https://jesse-zhou.com) and [Todar Dimov](https://dvlpr.pro/), which gave me some inspiration. To that end, i sketched out my site as a cosy pub, with a statistics bent. This serves as a channel to introduce some interesting analysis which aims to tell a clear and punchy story.
+What should this website be? There are some really outstanding 'portfolio' sites out there such as by [Jesse Zhou](https://jesse-zhou.com) and [Todar Dimov](https://dvlpr.pro/), which gave me some inspiration. To that end, i sketched out my site as a cosy pub, with a statistics bent - 'the Outlier's Rest', geddit?! This serves as a channel to introduce some interesting analysis which aims to tell a clear and punchy story.
 
 ![IMG_0020](https://github.com/user-attachments/assets/6f82f8d6-0863-41d3-b22b-9af441666dfc)
 
