@@ -1,10 +1,27 @@
-## 1. Project Title and Description
+# Project Beta
 This repositry (proj_beta) holds the files for my personal project site - www.aidanmcinern.com - built as a technical sandbox to try out new tools and techniques outside my usual data science work, including:
 - Front-end and backend development.
 - Database paradigms i'd otherwise only read about like NoSQL and GraphQL.
 - some DevOps best practices, including security, CI/CD and containerization.
 
+---
+
+## Table of Contents
+1. [Project Description](#description)
+2. [Technology Stack](#technologystack)
+3. [Installation and Setup](#installationandsetup)
+4. [Learning Objectives & Outcomes](#learningobjectivesoutcomes)
+5. [Future Plans](#futureplans)
+
+---
+
+## 1. Description
+
+
 The website is pretty lightweight - and by opting for free tier services (where possible) in Azure, the cheapest option in ChatGBT (3.5) and open source,the running cost of the site is around €2/month.
+
+context of the analysis (tells story with data to come up with actionable recommendations
+---
 
 ## 2. Technology Stack
 The main features of the project:
@@ -19,6 +36,8 @@ The main features of the project:
 - Devops: Docker, Kubernetes, GitHub Actions, CI/CD pipeline.
 - Containerisation: Kubernetes.
 - Deployed in Azure: App Service, Keyvault, Databases.
+
+---
 
 ## 3. Installation and Setup
 You can use the following steps to recreate the site.
@@ -45,6 +64,8 @@ npm start
 ```
 Environment Variables: [Outline of configuration of required .env variables](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/manage-environment-variables) 
 
+---
+
 ## 4. Learning Objectives & Outcomes
 As outlined at the top, the goal was to experiment and get some hands on experience and master certain tools. Below is a summary of these learnings:  
 
@@ -59,6 +80,8 @@ Polars.
 Docker, Kubernetes, 
 
 GitHub Actions, CI/CD pipeline.
+
+---
 
 ## 5. Future Plans
 Some possible future enhancements and features i’d like to add:
