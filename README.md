@@ -25,7 +25,7 @@ What should this website be? There are some really outstanding 'portfolio' sites
 
 The [Technology Stack](#technologystack) section outlines in greater detail the tools i subsequently used to develop this website. 
 
-As a hobby site, i was keen to keep costs on it down. The website is pretty lightweight - and by opting for free tier services (where possible) in Azure, the cheapest option in ChatGBT (3.5) and open source,the running cost of the site is around €2/month.
+As a hobby site, i was keen to keep costs on it down. It's pretty lightweight - and by opting for free tier services (where possible) in Azure, the cheapest option in ChatGBT (3.5) and open source,the running cost of the site is around €2/month.
 
 ---
 
