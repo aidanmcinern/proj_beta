@@ -17,10 +17,16 @@ This repositry (proj_beta) holds the files for my personal project site - www.ai
 
 ## 1. Description
 
+As a data scientist, I occasionally get opportunities to do some python dash frontend etc but I'm certainly no fullstacker. Since my forays into web development are so limited I was minded to develop a website (like its 2005!) to get a feel for the full stack experience.
 
-The website is pretty lightweight - and by opting for free tier services (where possible) in Azure, the cheapest option in ChatGBT (3.5) and open source,the running cost of the site is around €2/month.
+What should this website be? There are some really outstanding 'portfolio' sites out there such as by [Jesse Zhou](https://jesse-zhou.com) and [Todar Dimov](https://dvlpr.pro/), which gave me some inspiration. To that end, i sketched out my site in a cosy pub, with a statistics bent. This serves as a channel to introduce some interesting analysis which aims to tell a clear and punchy story.
 
-context of the analysis (tells story with data to come up with actionable recommendations
+![IMG_0020](https://github.com/user-attachments/assets/6f82f8d6-0863-41d3-b22b-9af441666dfc)
+
+The [Technology Stack](#technologystack) section outlines in greater detail the tools i subsequently used to develop this website. 
+
+As a hobby site, i was keen to keep costs on it down. The website is pretty lightweight - and by opting for free tier services (where possible) in Azure, the cheapest option in ChatGBT (3.5) and open source,the running cost of the site is around €2/month.
+
 ---
 
 ## 2. Technology Stack
