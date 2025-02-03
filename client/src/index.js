@@ -10,7 +10,7 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
+/*
 // Function to fetch a secret from the server
 async function fetchSecret(secretName) {
   try {
@@ -38,4 +38,6 @@ async function fetchSecret(secretName) {
   }
 })();
 
+
 //reportWebVitals();
+*/
