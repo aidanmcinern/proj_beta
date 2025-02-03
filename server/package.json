@@ -13,12 +13,14 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@azure/identity": "^4.5.0",
+    "@azure/identity": "^4.6.0",
     "@azure/keyvault-secrets": "^4.9.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongodb": "^6.11.0",
-    "mongoose": "^8.7.0"
+    "mongoose": "^8.7.0",
+    "openai": "^4.79.1"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
