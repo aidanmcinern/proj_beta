@@ -20,9 +20,6 @@
     "recharts": "^2.13.3",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "npm --prefix ./client start"
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
