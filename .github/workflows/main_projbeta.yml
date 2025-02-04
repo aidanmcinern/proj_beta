@@ -33,7 +33,7 @@ jobs:
           mkdir deployment
           cp -R client/build/* deployment/
           cp -R server deployment/
-          cp package.json package-lock.json deployment/
+          cp client/package.json client/package-lock.json deployment/
       
       - name: Zip artifact for deployment
         run: zip -r release.zip ./deployment
