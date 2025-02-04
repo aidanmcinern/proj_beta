@@ -9,3 +9,8 @@
     "three": "^0.169.0"
   }
 }
+{
+  "scripts": {
+    "start": "npm --prefix ./client start"
+  }
+}
