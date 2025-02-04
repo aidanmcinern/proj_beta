@@ -30,7 +30,7 @@ jobs:
       
       - name: Prepare build package for deployment
         run: |
-          cp package.json package-lock.json ./client/build
+          cp client/package.json client/package-lock.json ./client/build
           cp -R server ./client/build
       
       - name: Zip artifact for deployment
