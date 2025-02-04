@@ -2,7 +2,7 @@ import React, { memo, useEffect, useRef, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
-import './styles/App.css';
+import './client/src/styles/App.css';
 import useModelController from './hooks/useModelController';
 import useNavigation from './hooks/useNavigation';
 import useDataFetch from './hooks/useDataFetch';
