@@ -30,13 +30,13 @@ jobs:
       
       - name: Prepare build package for deployment
         run: |
-          cp client/package.json client/package-lock.json ./client/build
-          cp -R server ./client/build
+          mkdir deployment
+          cp -R client/build/* deployment/
+          cp -R server deployment/
+          cp package.json package-lock.json deployment/
       
       - name: Zip artifact for deployment
-        run: |
-          cd client/build
-          zip -r release.zip .
+        run: zip -r release.zip ./deployment
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
