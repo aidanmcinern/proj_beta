@@ -8,12 +8,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 
-// Add this before your routes
+/* // Add this before your routes
 app.use(cors({
   origin: 'http://localhost:3000', // Your frontend URL
   credentials: true
 }));
-
+ */
 app.use(bodyParser.json());
 
 const OpenAI = require('openai');
@@ -177,15 +177,12 @@ app.post('/chat', async (req, res) => {
 
 
 
-
-
-
-
-
-
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
 
 // Start the server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
