@@ -3,7 +3,7 @@ const express = require('express');
 const { getSecret } = require('./keyVaultHelper'); // Import the function to get secrets
 //const mongoose = require('mongoose');
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 8080;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -23,6 +23,11 @@ const { MongoClient } = require("mongodb");
 
 require("dotenv").config();
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the projbeta app!');
+});
+
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 // Endpoint to fetch secret
 app.get('/api/get-secret', async (req, res) => {
