@@ -36,7 +36,14 @@ jobs:
           mkdir deployment
           cp -R client/build/* deployment/
           cp -R server/* deployment/
-          cp server/package.json deployment/package.json
+          cp server/package.json deployment/
+          cp server/package-lock.json deployment/
+
+      - name: Verify deployment files
+        run: |
+          cd deployment
+          ls -la
+          cat package.json
 
       - name: Zip artifact for deployment
         run: |
