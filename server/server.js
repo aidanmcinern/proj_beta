@@ -3,17 +3,18 @@ const express = require('express');
 const { getSecret } = require('./keyVaultHelper'); // Import the function to get secrets
 //const mongoose = require('mongoose');
 const app = express();
+const path = require('path');
 const PORT = process.env.PORT || 8080;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
 
-/* // Add this before your routes
+// Add this before your routes
 app.use(cors({
   origin: 'http://localhost:3000', // Your frontend URL
   credentials: true
 }));
- */
+
 app.use(bodyParser.json());
 
 const OpenAI = require('openai');
@@ -24,10 +25,10 @@ const { MongoClient } = require("mongodb");
 require("dotenv").config();
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the projbeta app!');
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname)));
 
 // Endpoint to fetch secret
 app.get('/api/get-secret', async (req, res) => {

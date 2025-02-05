@@ -35,9 +35,7 @@ jobs:
         run: |
           mkdir deployment
           cp -R client/build/* deployment/
-          cp -R server/* deployment/
-          cp server/package.json deployment/
-          cp server/package-lock.json deployment/
+          cp server.js keyVaultHelper.js package*.json deployment/
 
       - name: Verify deployment files
         run: |
