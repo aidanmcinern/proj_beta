@@ -13,6 +13,6 @@
   },
   "scripts": {
     "build": "npm --prefix client install && npm --prefix client run build",
-    "start": "node server/server.js"
+    "start": "node server.js"
     }
 }

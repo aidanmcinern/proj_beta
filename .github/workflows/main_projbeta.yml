@@ -34,9 +34,9 @@ jobs:
       - name: Prepare build package for deployment
         run: |
           mkdir deployment
-          cp -R client/build/* deployment/  # Ensure client build files are copied
-          cp -R server/* deployment/   # Copy the server files
-          cp server/package.json server/package-lock.json deployment/
+          cp -R client/build/* deployment/
+          cp -R server/* deployment/
+          cp server/package.json deployment/package.json
 
       - name: Zip artifact for deployment
         run: |
