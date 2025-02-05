@@ -35,8 +35,8 @@ jobs:
         run: |
           mkdir deployment
           cp -R client/build/* deployment/  # Ensure client build files are copied
-          cp -R server deployment/server/   # Copy the server files
-          cp server/package.json server/package-lock.json deployment/server/
+          cp -R server/* deployment/   # Copy the server files
+          cp server/package.json server/package-lock.json deployment/
 
       - name: Zip artifact for deployment
         run: |
@@ -81,5 +81,5 @@ jobs:
         with:
           app-name: 'projbeta'
           slot-name: 'Production'
-          package: .
+          package: './deployment'
           
