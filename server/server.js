@@ -10,8 +10,16 @@ const cors = require('cors');
 
 
 // Add this before your routes
+const allowedOrigins = process.env.FRONTEND_URLS.split(',');
+
 app.use(cors({
-  origin: 'http://localhost:3000', // Your frontend URL
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
