@@ -34,8 +34,9 @@ jobs:
       - name: Prepare build package for deployment
         run: |
           mkdir deployment
-          cp -R client/build/* deployment/
-          cp server.js keyVaultHelper.js package*.json deployment/
+          cp -R client/build/* deployment/  # Copy the built client files
+          cp -R server/* deployment/        # Copy server files
+          cp server/package.json server/package-lock.json deployment/
 
       - name: Verify deployment files
         run: |
