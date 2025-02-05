@@ -1,4 +1,7 @@
 {
+  "name": "projbeta",
+  "version": "1.0.0",
+  "main": "server.js",
   "dependencies": {
     "@azure/identity": "^4.4.1",
     "@azure/keyvault-secrets": "^4.8.0",
