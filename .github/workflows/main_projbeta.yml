@@ -81,5 +81,5 @@ jobs:
         with:
           app-name: 'projbeta'
           slot-name: 'Production'
-          package: './deployment'
+          package: './deployment/release.zip'
           
