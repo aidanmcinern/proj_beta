@@ -57,7 +57,7 @@ const useChatbot = () => {
         ]
       };
 
-      const response = await fetch('http://localhost:3002/chat', {
+      const response = await fetch('projbeta-eccgcfftg6gug4gw.northeurope-01.azurewebsites.net/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
