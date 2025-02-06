@@ -8,6 +8,12 @@ const PORT = process.env.PORT || 8080;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const OpenAI = require('openai');
+const { DefaultAzureCredential } = require("@azure/identity");
+const { SecretClient } = require("@azure/keyvault-secrets");
+const { MongoClient } = require("mongodb");
+
+require("dotenv").config();
 
 const allowedOrigins = (process.env.FRONTEND_URLS || '').split(',').map(url => url.trim().replace(/\/$/, ''));
 
@@ -31,13 +37,6 @@ app.use(cors({
   credentials: true
 }));
 
-
-const OpenAI = require('openai');
-const { DefaultAzureCredential } = require("@azure/identity");
-const { SecretClient } = require("@azure/keyvault-secrets");
-const { MongoClient } = require("mongodb");
-
-require("dotenv").config();
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
