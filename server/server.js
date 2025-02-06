@@ -218,3 +218,12 @@ app.listen(PORT, '0.0.0.0', () => {
 });
 
 
+app.get('/test-secrets', async (req, res) => {
+  try {
+    const mongoUri = await getCosmosConnectionString();
+    const apiKey = await getOpenAIApiKey();
+    res.json({ mongoUri, apiKey });
+  } catch (error) {
+    res.status(500).send(`Error fetching secrets: ${error.message}`);
+  }
+});
