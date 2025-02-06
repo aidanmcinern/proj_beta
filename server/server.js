@@ -79,7 +79,7 @@ connectToDatabase(); */
 // Retrieve connection string from Key Vault
 async function getCosmosConnectionString() {
   const keyVaultUrl = process.env.AZURE_KEY_VAULT_URL;
-  const secretName = 'CosmosDBKey' //process.env.SECRET_NAME;
+  const secretName = 'MongoURI' //process.env.SECRET_NAME;
 
   const credential = new DefaultAzureCredential();
   const secretClient = new SecretClient(keyVaultUrl, credential);
