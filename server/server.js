@@ -204,41 +204,41 @@ app.get('/health', (req, res) => {
 // Diagnostics Route to Test Connections to CosmosDB and OpenAI API
 app.get('/api/test-connections', async (req, res) => {
   try {
-    // Test CosmosDB Connection
-    const cosmosConnectionString = await getCosmosConnectionString(); // Get Cosmos DB Connection String
-    const client = new MongoClient(cosmosConnectionString);
-    await client.connect();
-    const db = client.db("projbeta-database"); // Make sure this is your actual DB name
-    const collection = db.collection("testCollection"); // Replace with an existing collection name
+    // Test CosmosDB connectivity
+    const cosmosConnectionString = await getCosmosConnectionString();
+    const cosmosClient = new MongoClient(cosmosConnectionString);
+    await cosmosClient.connect();
+    const cosmosDb = cosmosClient.db('projbeta-database');  // Make sure this is the correct DB name
+    const cosmosCollection = cosmosDb.collection('testCollection'); // Specify your collection
 
-    // Check if we can retrieve any document
-    const testDoc = await collection.findOne({});
-    await client.close();
+    const cosmosDbTestDoc = await cosmosCollection.findOne({});  // Retrieve one document
 
-    // Test OpenAI API
-    const OPENAI_API_KEY = await getOpenAIApiKey(); // Get API Key for OpenAI
-    const openai = new OpenAI({ apiKey: OPENAI_API_KEY });
+    await cosmosClient.close();
 
-    // Call OpenAI API with a simple message
-    const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: [{ role: 'user', content: 'Test message to check connectivity' }]
+    // Test OpenAI API connectivity
+    const openaiApiKey = await getOpenAIApiKey();
+    const openai = new OpenAI({
+      apiKey: openaiApiKey,
     });
 
+    const openaiResponse = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: [{ role: 'user', content: 'Hello, are you able to receive and reply to this message? Just testing the connectivity.' }],
+    });
+
+    // Return both CosmosDB and OpenAI response
     res.json({
-      message: "Both CosmosDB and OpenAI API are reachable!",
-      cosmosDbTestDoc: testDoc, // Show document from CosmosDB if found
-      openaiResponse: response.choices?.[0]?.message?.content || 'No response from OpenAI',
+      message: 'Both CosmosDB and OpenAI API are reachable!',
+      cosmosDbTestDoc,
+      openaiResponse: openaiResponse.choices?.[0]?.message?.content || 'No response from OpenAI',
     });
 
   } catch (error) {
-    console.error("Error in diagnostic test:", error);
-    res.status(500).json({
-      error: "Failed to connect to either CosmosDB or OpenAI",
-      details: error.message
-    });
+    console.error('Error during test connections:', error);
+    res.status(500).json({ error: 'Failed to connect to CosmosDB or OpenAI' });
   }
 });
+
 
 
 // Start the server
