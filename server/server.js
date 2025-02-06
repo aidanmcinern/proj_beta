@@ -209,7 +209,7 @@ app.get('/api/test-connections', async (req, res) => {
     const cosmosClient = new MongoClient(cosmosConnectionString);
     await cosmosClient.connect();
     const cosmosDb = cosmosClient.db('projbeta-database');  // Make sure this is the correct DB name
-    const cosmosCollection = cosmosDb.collection('testCollection'); // Specify your collection
+    const cosmosCollection = cosmosDb.collection('demo'); // Specify your collection
 
     const cosmosDbTestDoc = await cosmosCollection.findOne({});  // Retrieve one document
 
