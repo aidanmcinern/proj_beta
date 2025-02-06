@@ -77,16 +77,18 @@ connectToDatabase(); */
 
 
 
-/* // Retrieve connection string from Key Vault
+// Retrieve connection string from Key Vault
 async function getCosmosConnectionString() {
   const keyVaultUrl = process.env.AZURE_KEY_VAULT_URL;
-  const secretName = process.env.SECRET_NAME;
+  const secretName = 'CosmosDBKey' //process.env.SECRET_NAME;
 
   const credential = new DefaultAzureCredential();
   const secretClient = new SecretClient(keyVaultUrl, credential);
 
   const secret = await secretClient.getSecret(secretName);
   return secret.value; // Cosmos DB connection string
+
+}
 
 // Function to retrieve the API key from Azure Key Vault
 async function getOpenAIApiKey() {
@@ -103,18 +105,47 @@ async function getOpenAIApiKey() {
   }
 }  
 
+// Chatbot route
+app.post('/chat', async (req, res) => {
 
-} */
+  try {
+    // Validate the request body
+    if (!req.body || typeof req.body !== 'object' || !Array.isArray(req.body.messages)) {
+      console.error('Invalid request body format');
+      return res.status(400).json({ error: 'Invalid request body format' });
+    }
 
-async function getCosmosConnectionString() {
-  const secretName = process.env.SECRET_NAME || "MongoURI"; // Fallback to "MongoURI" if not set
-  return await getSecret(secretName);
-}
+    const userMessage = req.body.messages.find(msg => msg.role === 'user')?.content;
 
-async function getOpenAIApiKey() {
-  const secretName = process.env.LLM || "LLM-API-KEY"; // Fallback to "LLM-API-KEY" if not set
-  return await getSecret(secretName);
-}
+    if (!userMessage || typeof userMessage !== 'string' || !userMessage.trim()) {
+      console.error('Invalid or empty user message:', userMessage);
+      return res.status(400).json({ error: 'Invalid or empty user message' });
+    }
+
+    // Get the API key dynamically from Key Vault
+    const OPENAI_API_KEY = await getOpenAIApiKey();
+
+    // Initialize OpenAI client (new syntax)
+    const openai = new OpenAI({
+      apiKey: OPENAI_API_KEY,
+    });
+
+    // Call OpenAI's chat completion API (new syntax)
+    const response = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: req.body.messages,
+    });
+    console.log('OpenAI response:', response);
+
+    res.json({
+      reply: response.choices?.[0]?.message?.content || 'No response from OpenAI',
+    });
+  } catch (error) {
+    console.error('Error:', error);
+    res.status(500).json({ error: 'An error occurred while processing your request' });
+  }
+});
+
 
 
 const fetchCollectionData = async (collectionName) => {
@@ -164,47 +195,6 @@ app.get('/api/collection', async (req, res) => {
 
 
 
-
-// Chatbot route
-app.post('/chat', async (req, res) => {
-
-  try {
-    // Validate the request body
-    if (!req.body || typeof req.body !== 'object' || !Array.isArray(req.body.messages)) {
-      console.error('Invalid request body format');
-      return res.status(400).json({ error: 'Invalid request body format' });
-    }
-
-    const userMessage = req.body.messages.find(msg => msg.role === 'user')?.content;
-
-    if (!userMessage || typeof userMessage !== 'string' || !userMessage.trim()) {
-      console.error('Invalid or empty user message:', userMessage);
-      return res.status(400).json({ error: 'Invalid or empty user message' });
-    }
-
-    // Get the API key dynamically from Key Vault
-    const OPENAI_API_KEY = await getOpenAIApiKey();
-
-    // Initialize OpenAI client (new syntax)
-    const openai = new OpenAI({
-      apiKey: OPENAI_API_KEY,
-    });
-
-    // Call OpenAI's chat completion API (new syntax)
-    const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: req.body.messages,
-    });
-    console.log('OpenAI response:', response);
-
-    res.json({
-      reply: response.choices?.[0]?.message?.content || 'No response from OpenAI',
-    });
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'An error occurred while processing your request' });
-  }
-});
 
 
 
