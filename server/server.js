@@ -9,21 +9,23 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 
-// Add this before your routes
-const allowedOrigins = process.env.FRONTEND_URLS.split(',');
+const allowedOrigins = (process.env.FRONTEND_URLS || '').split(',');
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+    // Trim trailing slashes and allow requests from undefined origins (like curl)
+    const cleanedOrigins = allowedOrigins.map(url => url.replace(/\/$/, ''));
+    const cleanedOrigin = origin ? origin.replace(/\/$/, '') : null;
+
+    if (!origin || cleanedOrigins.includes(cleanedOrigin)) {
       callback(null, true);
     } else {
+      console.error(`Blocked by CORS: ${origin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true
 }));
-
-app.use(bodyParser.json());
 
 const OpenAI = require('openai');
 const { DefaultAzureCredential } = require("@azure/identity");
