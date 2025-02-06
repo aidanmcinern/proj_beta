@@ -77,7 +77,7 @@ connectToDatabase(); */
 
 
 
-// Retrieve connection string from Key Vault
+/* // Retrieve connection string from Key Vault
 async function getCosmosConnectionString() {
   const keyVaultUrl = process.env.AZURE_KEY_VAULT_URL;
   const secretName = process.env.SECRET_NAME;
@@ -87,7 +87,35 @@ async function getCosmosConnectionString() {
 
   const secret = await secretClient.getSecret(secretName);
   return secret.value; // Cosmos DB connection string
+
+// Function to retrieve the API key from Azure Key Vault
+async function getOpenAIApiKey() {
+  const keyVaultUrl = process.env.AZURE_KEY_VAULT_URL;
+  const secretName = process.env.LLM;
+  const credential = new DefaultAzureCredential();
+  const client = new SecretClient(keyVaultUrl, credential);
+  try {
+    const secret = await client.getSecret(secretName);
+    return secret.value;
+  } catch (error) {
+    console.error('Error retrieving API key from Key Vault:', error.message);
+    throw new Error('Failed to retrieve API key.');
+  }
+}  
+
+
+} */
+
+async function getCosmosConnectionString() {
+  const secretName = process.env.SECRET_NAME || "MongoURI"; // Fallback to "MongoURI" if not set
+  return await getSecret(secretName);
 }
+
+async function getOpenAIApiKey() {
+  const secretName = process.env.LLM || "LLM-API-KEY"; // Fallback to "LLM-API-KEY" if not set
+  return await getSecret(secretName);
+}
+
 
 const fetchCollectionData = async (collectionName) => {
   try {
@@ -135,20 +163,7 @@ app.get('/api/collection', async (req, res) => {
 
 
 
-// Function to retrieve the API key from Azure Key Vault
-async function getOpenAIApiKey() {
-  const keyVaultUrl = process.env.AZURE_KEY_VAULT_URL;
-  const secretName = process.env.LLM;
-  const credential = new DefaultAzureCredential();
-  const client = new SecretClient(keyVaultUrl, credential);
-  try {
-    const secret = await client.getSecret(secretName);
-    return secret.value;
-  } catch (error) {
-    console.error('Error retrieving API key from Key Vault:', error.message);
-    throw new Error('Failed to retrieve API key.');
-  }
-}
+
 
 // Chatbot route
 app.post('/chat', async (req, res) => {
