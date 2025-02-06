@@ -7,10 +7,11 @@ export const useDataFetch = () => {
   });
 
   useEffect(() => {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3002'; // Default to localhost in case env var is missing
     const fetchAllData = async () => {
       try {
-        const climateResponse = await fetch('projbeta-eccgcfftg6gug4gw.northeurope-01.azurewebsites.net/api/collection?collection=demo');
-        const migrationResponse = await fetch('projbeta-eccgcfftg6gug4gw.northeurope-01.azurewebsites.net/api/collection?collection=demo2');
+        const climateResponse = await fetch(`${backendUrl}/api/collection?collection=demo`);
+        const migrationResponse = await fetch(`${backendUrl}/api/collection?collection=demo2`);
 
         const climateData = await climateResponse.json();
         const migrationData = await migrationResponse.json();
