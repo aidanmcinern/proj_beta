@@ -9,23 +9,28 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 
-const allowedOrigins = (process.env.FRONTEND_URLS || '').split(',');
+const allowedOrigins = (process.env.FRONTEND_URLS || '').split(',').map(url => url.trim().replace(/\/$/, ''));
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Trim trailing slashes and allow requests from undefined origins (like curl)
-    const cleanedOrigins = allowedOrigins.map(url => url.replace(/\/$/, ''));
-    const cleanedOrigin = origin ? origin.replace(/\/$/, '') : null;
+    // Allow curl or server-to-server requests (no `Origin`)
+    if (!origin) {
+      return callback(null, true);
+    }
 
-    if (!origin || cleanedOrigins.includes(cleanedOrigin)) {
+    // Normalize origin comparison
+    const cleanedOrigin = origin.replace(/\/$/, '');
+
+    if (allowedOrigins.includes(cleanedOrigin)) {
       callback(null, true);
     } else {
-      console.error(`Blocked by CORS: ${origin}`);
+      console.error(`Blocked by CORS: ${cleanedOrigin}`);
       callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true
 }));
+
 
 const OpenAI = require('openai');
 const { DefaultAzureCredential } = require("@azure/identity");
