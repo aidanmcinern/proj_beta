@@ -7,8 +7,8 @@ export const useDataFetch = () => {
   });
 
   useEffect(() => {
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3002'; // Default to localhost in case env var is missing
-    console.log("Backend URL: ", backendUrl);
+    const backendUrl = 'https://projbeta-eccgcfftg6gug4gw.northeurope-01.azurewebsites.net'
+    //process.env.REACT_APP_BACKEND_URL || 'http://localhost:3002'; // Default to localhost in case env var is missing
     const fetchAllData = async () => {
       try {
         const climateResponse = await fetch(`${backendUrl}/api/collection?collection=demo`);
