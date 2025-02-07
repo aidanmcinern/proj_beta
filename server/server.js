@@ -17,6 +17,8 @@ require("dotenv").config();
 
 const allowedOrigins = (process.env.FRONTEND_URLS || '').split(',').map(url => url.trim().replace(/\/$/, ''));
 
+app.use(express.json());
+
 app.use(cors({
   origin: function (origin, callback) {
     // Allow curl or server-to-server requests (no `Origin`)
