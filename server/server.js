@@ -108,7 +108,6 @@ async function getOpenAIApiKey() {
 
 // Chatbot route
 app.post('/chat', async (req, res) => {
-  console.log('Request body:', req.body); // Add this for debugging
   try {
     // Validate the request body
     if (!req.body || typeof req.body !== 'object' || !Array.isArray(req.body.messages)) {
