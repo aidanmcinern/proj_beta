@@ -106,3 +106,57 @@ body {
     opacity: 1;
   }
 }
+
+
+
+@media only screen and (max-width: 767px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    min-height: unset;
+    padding: 20px 10px;
+    position: relative;
+  }
+  
+  .title {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  .subhead_1 {
+    font-size: 28px;
+    margin: 5px 5px -15px;
+  }
+  
+  .subhead_2 {
+    font-size: 22px;
+    margin: 5px;
+  }
+  
+  .subhead_3 {
+    font-size: 26px;
+    margin: 5px 5px 10px;
+  }
+  
+  .nav-item {
+    font-size: 24px;
+    padding: 8px;
+  }
+  
+  .floralBorderTop, .floralBorderBottom {
+    height: 30px;
+    margin: 10px 0;
+  }
+}
+
+/* Tablet adjustments */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .sidebar {
+    width: 280px;
+    padding: 40px 15px;
+  }
+  
+  .title {
+    font-size: 42px;
+  }
+}

@@ -32,7 +32,7 @@ const ProjectsContent = ({ datasets }) => {
   
         {activeTab === 'Climate Analysis' ? (
           <div>
-            <h3 style={{ color: '#f0a500', marginBottom: '20px' }}>Climate Trends</h3>
+            <p>Some placeholder stuff (populated from an azure hosted Cosmos Dabtabse)</p>
             <LineChart width={500} height={300} data={datasets.climate}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" />
@@ -44,7 +44,7 @@ const ProjectsContent = ({ datasets }) => {
           </div>
         ) : (
           <div>
-            <h3 style={{ color: '#f0a500', marginBottom: '20px' }}>Migration & GDP Correlation</h3>
+            <p>Some placeholder stuff (populated from an azure hosted Cosmos Dabtabse)</p>
             <BarChart width={500} height={300} data={datasets.migration}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" />

@@ -209,6 +209,13 @@
     left: 57%;
 }
 
+.txt_font {
+    font-family: Peach_Cakes, sans-serif;
+    font-size: 50px;
+    padding: 70px;
+    color: #f0a500;   
+}
+
 @keyframes beer-fill {
     0% {
         transform: scaleY(0);
