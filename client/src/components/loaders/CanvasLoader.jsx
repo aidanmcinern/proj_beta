@@ -38,6 +38,7 @@ const CanvasLoader = () => (
         </div>
       </div>
     </div>
+    
   );
 
   export default CanvasLoader;
