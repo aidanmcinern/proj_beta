@@ -20,6 +20,10 @@
     "recharts": "^2.13.3",
     "web-vitals": "^2.1.4"
   },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",

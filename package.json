@@ -1,4 +1,7 @@
 {
+  "name": "projbeta",
+  "version": "1.0.0",
+  "main": "server.js",
   "dependencies": {
     "@azure/identity": "^4.4.1",
     "@azure/keyvault-secrets": "^4.8.0",
@@ -9,6 +12,7 @@
     "three": "^0.169.0"
   },
   "scripts": {
-    "start": "npm --prefix ./client start"
-  }
+    "build": "npm --prefix client install && npm --prefix client run build",
+    "start": "node server.js"
+    }
 }

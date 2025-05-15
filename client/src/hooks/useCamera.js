@@ -9,7 +9,7 @@ const useCamera = ({ activeSection, controlsRef }) => {
   const animateCamera = useCallback((startPos, targetPos, startZoom, targetZoom) => {
     if (controlsRef.current) {
       const camera = controlsRef.current.object;
-      const duration = 1000; // Shorter duration for zoom actions
+      const duration = 2000; // Shorter duration for zoom actions
       let startTime;
 
       const animate = (currentTime) => {

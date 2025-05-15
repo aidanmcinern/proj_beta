@@ -56,8 +56,9 @@ const useChatbot = () => {
           { role: 'user', content: messageToSend }
         ]
       };
-
-      const response = await fetch('http://localhost:3002/chat', {
+      const backendUrl = 'https://projbeta-eccgcfftg6gug4gw.northeurope-01.azurewebsites.net'
+      //process.env.REACT_APP_BACKEND_URL || 'http://localhost:3002'; // Default to localhost in case env var is missing
+      const response = await fetch(`${backendUrl}/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

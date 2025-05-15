@@ -216,3 +216,59 @@ button:hover {
 .chat-history::-webkit-scrollbar-thumb:hover {
   background: #d89400;
 }
+
+
+/* Mobile devices (portrait) */
+@media only screen and (max-width: 767px) {
+  /* Make content fit mobile screens */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Adjust overlay content positioning */
+  .overlay-content {
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  /* Mobile-friendly buttons */
+  button {
+    padding: 12px !important;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Adjust animations for mobile */
+  @keyframes fadeInFromTop {
+    0% {
+      opacity: 0;
+      transform: translate(0%, -30%) scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0%, 0%) scale(1);
+    }
+  }
+  
+  /* Adjust font sizes for mobile */
+  .txt_font {
+    font-size: 30px;
+    padding: 20px;
+  }
+  
+  /* Ensure canvas fits screen */
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+/* Tablet devices */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .overlay-content {
+    width: 80%;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+}
