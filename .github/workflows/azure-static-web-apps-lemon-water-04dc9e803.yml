@@ -39,7 +39,7 @@ jobs:
           action: "upload"
           app_location: "./client"
           output_location: "build"
-          api_location: ""
+          # api_location: ""
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
