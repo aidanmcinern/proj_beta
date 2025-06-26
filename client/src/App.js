@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef, Suspense } from 'react';
+import React, { memo, useEffect, useRef, Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -64,8 +64,6 @@ export default function App() {
     </group>
   );
 
-
-
   useEffect(() => {
     const currentRef = scrollRef.current;
     currentRef.addEventListener('wheel', scrollRef, { passive: false });
@@ -74,18 +72,34 @@ export default function App() {
     };
   }, [scrollRef]);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);  
+
   return (
-    <div style={{ display: 'flex', width: '100%', height: '100vh', overflow: 'hidden' }}>
+    <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', width: '100%', height: isMobile ? 'auto' : '100vh', overflow: isMobile ? 'auto' : 'hidden'}}>
       <Sidebar
         activeSection={activeSection}
         isTransitioning={isTransitioning}
         hasInteracted={hasInteracted}
         navigateToSection={navigateToSection}
       />
-      <div style={{ flex: 1, backgroundColor: '#1e1e1e', position: 'relative' }} ref={scrollRef}>
+      <div style={{ flex: 1, backgroundColor: '#1e1e1e', position: 'relative', height: isMobile ? '80vh' : '100%'}} ref={scrollRef}>
         {!isModelLoaded && (
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1000 }}>
             <CanvasLoader />
+            <div className="txt_font">
+              <span>Loading ... </span>
+            </div>
           </div>
         )}
         <MouseIndicator
@@ -97,7 +111,7 @@ export default function App() {
           shadows
           camera={{
             position: [9, 3, 9],
-            fov: 50,
+            fov: isMobile ? 60 : 50,
           }}
         >
           <ambientLight intensity={1.3} color={new THREE.Color(0xffffff)} />
@@ -109,10 +123,11 @@ export default function App() {
             ref={controlsRef}
             enableZoom={false}
             enablePan={false}
+            rotateSpeed={isMobile ? 0.7 : 1}
           />
         </Canvas>
 
-        <div style={{ position: 'absolute', bottom: '20px', right: '20px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <div style={{ position: 'absolute', bottom: isMobile ? '10px' : '20px', right: isMobile ? '10px' : '20px', display: 'flex', flexDirection: 'column', gap: isMobile ? '5px' : '10px'  }}>
           <RegularButton
             Insruct={'Zoom In'}
             controlsRef={controlsRef}
